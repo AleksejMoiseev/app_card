@@ -2,6 +2,8 @@ from django import forms
 from .models import Card, NUMBER_MAX_VALUE, NUMBER_MIN_VALUE
 from rest_framework.exceptions import ValidationError
 
+from .utils import get_latest_number_for_series
+
 
 class FormCard(forms.ModelForm):
     amount = forms.IntegerField(min_value=NUMBER_MIN_VALUE, max_value=NUMBER_MAX_VALUE)
@@ -14,7 +16,7 @@ class FormCard(forms.ModelForm):
     def clean_amount(self):
         amount = self.cleaned_data['amount']
         series = self.cleaned_data['series']
-        latest_number = Card.objects.filter(series=series).latest('number').number
+        latest_number = get_latest_number_for_series(series=series)
         free = NUMBER_MAX_VALUE - latest_number
         if amount > free:
             return ValidationError('The number of requested cards is not available in this series'.format(series))
