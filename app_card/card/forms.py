@@ -6,8 +6,16 @@ from .utils import get_latest_number_for_series
 
 
 class FormCard(forms.ModelForm):
-    amount = forms.IntegerField(min_value=NUMBER_MIN_VALUE, max_value=NUMBER_MAX_VALUE)
-    validity = forms.ChoiceField(choices=Card.VALIDITY_CHOICES)
+    amount = forms.IntegerField(
+        min_value=NUMBER_MIN_VALUE,
+        max_value=NUMBER_MAX_VALUE,
+        label='Количество необходимых карт',
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    validity = forms.ChoiceField(
+        choices=Card.VALIDITY_CHOICES,
+        label='Срок действия кары',
+    )
 
     class Meta:
         model = Card

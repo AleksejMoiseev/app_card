@@ -2,8 +2,27 @@
 
 
 {% block object-tools %}
+<style>
+   .button1 {
+   display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: .5em 2em;
+  outline: none;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-color: #FDBE33 #000 #D77206;
+  border-radius: 6px;
+  background: linear-gradient(#F3AE0F, #E38916) #E38916;
+  transition: 0.2s;
+  font-weight: 900;
+}
+a.button1:hover { background: rgba(255,255,255,.2); }
+a.button1:active { background: white; }
 
-    <a href="generate/"><h1>ДОБАВИТЬ КАРТЫ</h1></a>
+</style>
+
+<a href="generate/" class="button1">ДОБАВИТЬ КАРТЫ</a>
     <br />
     {{ block.super }}
 {% endblock %}
