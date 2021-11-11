@@ -1,13 +1,12 @@
+from datetime import timedelta
+
 from django.contrib import admin
+from django.shortcuts import render, redirect
+from django.urls import path
 
 from .forms import FormCard
 from .models import Card
-from datetime import timedelta
-
-# Register your models here.
 from .utils import create_pull_cards
-from django.urls import path
-from django.shortcuts import render, redirect
 
 
 @admin.register(Card)

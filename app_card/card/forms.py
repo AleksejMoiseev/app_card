@@ -1,7 +1,7 @@
 from django import forms
-from .models import Card, NUMBER_MAX_VALUE, NUMBER_MIN_VALUE
 from rest_framework.exceptions import ValidationError
 
+from .models import Card, NUMBER_MAX_VALUE, NUMBER_MIN_VALUE
 from .utils import get_latest_number_for_series
 
 
