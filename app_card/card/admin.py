@@ -20,7 +20,7 @@ class AdminCard(admin.ModelAdmin):
     def get_urls(self):
         urls = super().get_urls()
         my_urls = [
-            path('generate/', self.generate),
+            path('generate/', self.generate, name='generate'),
         ]
         return my_urls + urls
 
